@@ -3,19 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Car
+  - CountDown
+  - FrontCam
+  - CarColliderTag
+  - Banana
+  - BombPos
+  - FxTemporaire
+  - AICollider
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CarCollider
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - groundLayer
+  - MotorCollider
+  - Car
+  - AILayer
+  - FinishLayer
   - 
   - 
   - 
