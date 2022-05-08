@@ -148,11 +148,11 @@ public class CarController : MonoBehaviour
                     //get length of checkpoints
                     int length = triggers.Length;
                     //set car position to checkpoint position
-                    transform.position = spawnPoints[(number-1) % length].transform.position;
-                    rb.position = spawnPoints[(number-1) % length].transform.position;
+                    transform.position = spawnPoints[(number) + length % length].transform.position;
+                    rb.position = spawnPoints[(number) + length % length].transform.position;
                     //set car rotation to checkpoint rotation
-                    transform.rotation = spawnPoints[(number-1) % length].transform.rotation;
-                    rb.rotation = spawnPoints[(number-1) % length].transform.rotation;
+                    transform.rotation = spawnPoints[(number) + length % length].transform.rotation;
+                    rb.rotation = spawnPoints[(number) + length % length].transform.rotation;
                     //set car drag to normal
                     rb.drag = normalDrag;
                     //set car forward speed to normal
