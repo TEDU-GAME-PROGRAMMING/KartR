@@ -46,6 +46,10 @@ public class CarController : MonoBehaviour
     public GameObject [] triggers;
     public GameObject [] spawnPoints;
 
+    public GameObject[] checkpoints;
+    public int currentCheckpoint;
+    public int currentLap;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,8 @@ public class CarController : MonoBehaviour
         myCinemachine = GameObject.Find("Main Cam").GetComponent<CinemachineVirtualCamera>();
         frontCinemachine = GameObject.Find("Main Cam2").GetComponent<CinemachineVirtualCamera>();
         //set front machine inactive
+        currentCheckpoint = 0;
+        currentLap = 1;
     }
 
     // Update is called once per frame
@@ -196,7 +202,7 @@ public class CarController : MonoBehaviour
             //frontCinemachine.name = "Main Cam2";
             //set my cinemachine name Main Cam
             //myCinemachine.name = "Main Cam";
-        }
+        } 
     }
 
     private void FixedUpdate(){

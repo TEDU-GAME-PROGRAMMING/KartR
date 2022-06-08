@@ -20,14 +20,14 @@ public class FinishLap : MonoBehaviour
         {
             GameObject AI = other.gameObject;
             AI.GetComponent<AIcheckpoint>().lapsDone += 1;
-            if(AI.GetComponent<AIcheckpoint>().lapsDone == totalLap)
+            if(AI.GetComponent<AIcheckpoint>().lapsDone == totalLap + 1)
             {
                 Debug.Log("You Lose");
                 Time.timeScale = 0;
             }   
         }
         LapCounter.GetComponent<TMPro.TextMeshProUGUI>().SetText(""+ LapsDone);
-        if(LapsDone == totalLap)
+        if(LapsDone == totalLap + 1)
         {
             Debug.Log("You Win");
            // winPanel.SetActive(true);
