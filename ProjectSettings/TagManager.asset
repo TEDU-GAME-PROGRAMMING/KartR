@@ -12,6 +12,8 @@ TagManager:
   - BombPos
   - FxTemporaire
   - AICollider
+  - Bomb
+  - PositionManager
   layers:
   - Default
   - TransparentFX
@@ -24,9 +26,9 @@ TagManager:
   - Car
   - AILayer
   - FinishLayer
-  - 
-  - 
-  - 
+  - P1Cam
+  - P2Cam
+  - BombLayer
   - 
   - 
   - 

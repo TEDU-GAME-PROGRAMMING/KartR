@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class FinishLap : MonoBehaviour
 {
     public GameObject LapCounter;
@@ -22,16 +23,19 @@ public class FinishLap : MonoBehaviour
             AI.GetComponent<AIcheckpoint>().lapsDone += 1;
             if(AI.GetComponent<AIcheckpoint>().lapsDone == totalLap + 1)
             {
-                Debug.Log("You Lose");
+                //lose
+                SceneManager.LoadScene("ResultScreenLose");
                 Time.timeScale = 0;
             }   
         }
-        LapCounter.GetComponent<TMPro.TextMeshProUGUI>().SetText(""+ LapsDone);
         if(LapsDone == totalLap + 1)
         {
-            Debug.Log("You Win");
-           // winPanel.SetActive(true);
+            //win
+            SceneManager.LoadScene("ResultScreen"); 
             Time.timeScale = 0;
+        }
+        else {
+            LapCounter.GetComponent<TMPro.TextMeshProUGUI>().SetText(""+ LapsDone);
         }
     }
 

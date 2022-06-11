@@ -8,10 +8,10 @@ public class BuffCollider : MonoBehaviour
     private GameObject bombPosition;
     public GameObject[] bombPositions;
     public float timeStart=2f;
-    private bool HasSpeed=false;
-    private bool HasBomb=false;
-    private bool isactiveBomb=false;
-    public GameObject Bomb;
+    public bool HasSpeed=false;
+    public bool HasBomb=false;
+    public bool isactiveBomb=false;
+    public GameObject BombImg;
     public GameObject Nitro;
     public GameObject prefabOfBuff;
     public GameObject nitroRemaining;
@@ -23,7 +23,7 @@ public class BuffCollider : MonoBehaviour
     if(Input.GetKeyDown(KeyCode.V) && HasBomb==true){
         isactiveBomb=true;
         HasBomb=false;
-        Bomb.SetActive(false);
+        BombImg.SetActive(false);
     }
 
     SpeedUp();
@@ -53,26 +53,26 @@ public class BuffCollider : MonoBehaviour
     {
         if (other.CompareTag("CarColliderTag"))
         {
-            StartCoroutine(PickUp());
             float RandomNumber=Random.Range(1, 3);
-            if(RandomNumber == 1 && HasSpeed==false){
+            if(RandomNumber == 1){
               GetBuffSound.Play();
               HasSpeed=true;
               timeStart=2f;
               HasBomb=false;
               //set active Bomb image in Canvas
               Nitro.SetActive(true);
-              Bomb.SetActive(false);
+              BombImg.SetActive(false);
             }
             
-            if(RandomNumber == 2 && HasBomb==false){
+            if(RandomNumber == 2){
               GetBuffSound.Play();
               HasSpeed=false;
               HasBomb=true;
               //set active Bomb image in Canvas
-              Bomb.SetActive(true);
+              BombImg.SetActive(true);
               Nitro.SetActive(false);
             }
+            StartCoroutine(PickUp());
         }
     }
     IEnumerator PickUp()

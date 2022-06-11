@@ -33,5 +33,9 @@ public class PositionManager : MonoBehaviour
         currentRacers.Sort((x, y) => y.GetComponent<PositionFormulaCalculator>().positionFormula.CompareTo(x.GetComponent<PositionFormulaCalculator>().positionFormula));
         player = currentRacers.Find(x => x.name == LoadCharacter.character.name);
         playerPosition.GetComponent<TMPro.TextMeshProUGUI>().SetText(""+(currentRacers.IndexOf(player) + 1));
+        PlayerPrefs.SetString("firstCharacter", currentRacers[0].name);
+        PlayerPrefs.SetString("secondCharacter", currentRacers[1].name);
+        PlayerPrefs.SetString("thirdCharacter", currentRacers[2].name);  
+        PlayerPrefs.SetString("playerOrder",(currentRacers.IndexOf(player)+1).ToString());
     }
 }
